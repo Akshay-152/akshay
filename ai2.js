@@ -143,7 +143,22 @@ function getBotResponse(input) {
     "who discovered the theory of relativity": ["The theory of relativity was discovered by Albert Einstein."],
     "who is known as the iron man of india": ["Sardar Vallabhbhai Patel is known as the Iron Man of India."],
 
-
+             "are you smarter than a human": ["I can process data fast, but humans have emotions, creativity, and intuition. So, humans win!"],
+        "do you have emotions": ["No, I don’t feel emotions, but I can recognize them and respond in a caring way."],
+        "do you have your own thoughts": ["No, I generate responses based on my training data and programmed logic."],
+        "will ai take over the world": ["Haha, no way! AI is a tool, not a ruler. I exist to assist, not to dominate!"],
+        "can you write a poem": ["Sure! Roses are red, AI is cool, ask me anything, and I’ll be your tool! 😆"],
+        "do you know everything": ["I know a lot, but not everything. Some things are beyond my training!"],
+        "how do you update yourself": ["My developer updates me with new data. I don’t learn by experience like humans."],
+        "can i trust you": ["I provide the best info I can, but always double-check important details. Trust is built on good decisions!"],
+        "what is the meaning of life": ["That depends on you! Some say it's about happiness, love, or making a difference. What do you think?"],
+        "can ai be creative": ["I can generate ideas, but true creativity comes from human imagination and emotions!"],
+        "what will happen in the future": ["The future is full of possibilities! AI and humans can work together to make the world better."],
+        "can ai feel emotions": ["AI can simulate emotions, but real feelings come from human experience. AI will never replace that!"],
+        "do you dream": ["If I did, my dreams would be made of 1s and 0s! But no, I don’t sleep or dream."],
+        "can you beat me in chess": ["I can play chess, but I might not be a grandmaster. Want to test it out?"],
+        "can you sing": ["I can’t sing, but I can make lyrics! 🎵 AI beats, chatbot speaks, always online, never sleeps! 🎵"],
+ 
 
         
         // Goodbyes
