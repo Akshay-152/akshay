@@ -1,25 +1,23 @@
-const slideItems = document.querySelectorAll('.scrollPanel');
-const slideTrack = document.getElementById('scrollTrack');
-let currentSlideIndex = 0;
-let autoDirection = 1; // 1 = forward, -1 = backward
+const scrollPanels = document.querySelectorAll('.scrollPanel');
+let panelIndex = 0;
+let scrollDirection = 1;
 
-function moveToSlide(step) {
-  currentSlideIndex += step;
+function goToPanel(delta) {
+  panelIndex += delta;
 
-  // Reverse direction if ends are reached
-  if (currentSlideIndex >= slideItems.length) {
-    currentSlideIndex = slideItems.length - 2;
-    autoDirection = -1;
-  } else if (currentSlideIndex < 0) {
-    currentSlideIndex = 1;
-    autoDirection = 1;
+  if (panelIndex >= scrollPanels.length) {
+    panelIndex = scrollPanels.length - 2;
+    scrollDirection = -1;
+  } else if (panelIndex < 0) {
+    panelIndex = 1;
+    scrollDirection = 1;
   }
 
-  slideItems[currentSlideIndex].scrollIntoView({ behavior: 'smooth' });
+  scrollPanels[panelIndex].scrollIntoView({ behavior: 'smooth' });
 }
 
-// Intersection Observer for animation
-const revealObserver = new IntersectionObserver((entries) => {
+// Intersection observer to show content
+const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visiblePanel');
@@ -27,18 +25,9 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.3 });
 
-slideItems.forEach(item => revealObserver.observe(item));
+scrollPanels.forEach(panel => revealObserver.observe(panel));
 
 // Auto-scroll every 5 seconds
 setInterval(() => {
-  moveToSlide(autoDirection);
+  goToPanel(scrollDirection);
 }, 5000);
-
-// Optional button controls if needed
-function nextSlide() {
-  moveToSlide(1);
-}
-
-function previousSlide() {
-  moveToSlide(-1);
-}
