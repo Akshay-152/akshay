@@ -1,32 +1,44 @@
-const slides = document.querySelectorAll('.slideCard');
-let slideIndex = 0;
-let scrollDir = 1;
+const slideItems = document.querySelectorAll('.scrollPanel');
+const slideTrack = document.getElementById('scrollTrack');
+let currentSlideIndex = 0;
+let autoDirection = 1; // 1 = forward, -1 = backward
 
-const slideObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('activeSlide');
-      slideIndex = [...slides].indexOf(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
+function moveToSlide(step) {
+  currentSlideIndex += step;
 
-slides.forEach(slide => slideObserver.observe(slide));
-
-function moveSlide(directionChange) {
-  let nextSlide = slideIndex + directionChange;
-
-  if (nextSlide >= slides.length) {
-    nextSlide = slides.length - 2;
-    scrollDir = -1;
-  } else if (nextSlide < 0) {
-    nextSlide = 1;
-    scrollDir = 1;
+  // Reverse direction if ends are reached
+  if (currentSlideIndex >= slideItems.length) {
+    currentSlideIndex = slideItems.length - 2;
+    autoDirection = -1;
+  } else if (currentSlideIndex < 0) {
+    currentSlideIndex = 1;
+    autoDirection = 1;
   }
 
-  slides[nextSlide].scrollIntoView({ behavior: 'smooth' });
+  slideItems[currentSlideIndex].scrollIntoView({ behavior: 'smooth' });
 }
 
+// Intersection Observer for animation
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visiblePanel');
+    }
+  });
+}, { threshold: 0.3 });
+
+slideItems.forEach(item => revealObserver.observe(item));
+
+// Auto-scroll every 5 seconds
 setInterval(() => {
-  moveSlide(scrollDir);
+  moveToSlide(autoDirection);
 }, 5000);
+
+// Optional button controls if needed
+function nextSlide() {
+  moveToSlide(1);
+}
+
+function previousSlide() {
+  moveToSlide(-1);
+}
