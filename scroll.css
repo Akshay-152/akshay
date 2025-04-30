@@ -1,0 +1,118 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1117;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .outer-wrapper {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .sectionn {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background-color: #161b22;
+      border-radius: 12px;
+      margin-right: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: background 0.5s;
+    }
+
+    .sectionn:nth-child(even) {
+      background-color: #1c212c;
+    }
+
+    .content {
+      max-width: 600px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
+    }
+
+    .visible .content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: #58a6ff;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #f0f6fc;
+    }
+
+    strong {
+      color: #ffffff;
+    }
+
+    .nav-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-buttons button {
+      background-color: #21262d;
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #30363d;
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 30px 15px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .nav-buttons button {
+        padding: 8px 14px;
+        font-size: 14px;
+      }
+    }
