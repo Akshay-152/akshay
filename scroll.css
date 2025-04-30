@@ -1,27 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Container and scrolling section only (renamed uniquely) */
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f172a;
-  color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.wrapperBox {
+.outerShell {
   width: 100%;
   max-width: 850px;
   padding: 20px;
 }
 
-.sliderTrack {
+.scrollRail {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -30,7 +15,7 @@ body {
   border-radius: 10px;
 }
 
-.slideCard {
+.scrollPanel {
   flex: 0 0 100%;
   scroll-snap-align: center;
   padding: 40px 20px;
@@ -44,11 +29,11 @@ body {
   transition: background 0.4s;
 }
 
-.slideCard:nth-child(even) {
+.scrollPanel:nth-child(even) {
   background-color: #273549;
 }
 
-.slideContent {
+.panelInner {
   max-width: 600px;
   text-align: center;
   opacity: 0;
@@ -56,7 +41,7 @@ body {
   transition: all 0.5s ease;
 }
 
-.activeSlide .slideContent {
+.visiblePanel .panelInner {
   opacity: 1;
   transform: translateY(0);
 }
@@ -77,13 +62,13 @@ strong {
   color: #fff;
 }
 
-.navBar {
+.controlBar {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.navBtn {
+.controlBtn {
   background-color: #334155;
   border: none;
   color: #fff;
@@ -94,12 +79,12 @@ strong {
   transition: background 0.3s;
 }
 
-.navBtn:hover {
+.controlBtn:hover {
   background-color: #475569;
 }
 
 @media (max-width: 600px) {
-  .slideCard {
+  .scrollPanel {
     padding: 30px 15px;
   }
 
@@ -111,7 +96,7 @@ strong {
     font-size: 15px;
   }
 
-  .navBtn {
+  .controlBtn {
     font-size: 14px;
     padding: 8px 16px;
   }
