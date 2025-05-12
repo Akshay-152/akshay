@@ -1,15 +1,21 @@
 {
-  "name": "Elite Fashions",
-  "short_name": "Elite",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "name": "My Awesome Blog",
+  "short_name": "Awesome Blog",
   "icons": [
     {
-      "src": "https://yourdomain.com/icon.png",
+      "src": "https://your-blog-url/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "https://your-blog-url/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ]
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#4CAF50"
 }
