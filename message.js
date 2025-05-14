@@ -1,4 +1,4 @@
- <script type="module">
+ 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import {
   getFirestore, collection, addDoc, getDocs,
@@ -311,4 +311,3 @@ function showCustomAlert(message, autoClose = false) {
 window.hideCustomAlert = function () {
   document.getElementById("custom-alert").style.display = "none";
 };
-</script>
